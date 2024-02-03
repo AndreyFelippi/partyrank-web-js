@@ -10,6 +10,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { LoadingComponent } from "@/components/loading-component";
 import { handleUpdateUserInfoForm } from "@/handlers/user.handlers";
+import { translate } from "@/translate/pt_BR";
 
 type ChangeAnimeListFormProps = {
   user: User;
@@ -77,7 +78,7 @@ export function ChangeUserInfoForm({ user }: ChangeAnimeListFormProps) {
       {isLoading && <LoadingComponent />}
       <div className="inputs">
         <Input
-          displayName="Username"
+          displayName={translate.username}
           placeholder="xxSuperNarutoxx"
           {...register("username")}
           value={userInput.username}
@@ -85,7 +86,7 @@ export function ChangeUserInfoForm({ user }: ChangeAnimeListFormProps) {
           errorMessage={errors.username?.message}
         />
         <Input
-          displayName="Anime List Link"
+          displayName={translate.animelist}
           placeholder="https://myanimelist.net/profile/elonmusk"
           {...register("animelist")}
           value={userInput.animelist}
